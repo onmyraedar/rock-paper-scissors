@@ -61,7 +61,7 @@ function playRound(playerSelection, computerSelection) {
             return "We're sorry. The computer made an erroneous play.";
         }    
     } else {
-        return "Please enter one of the following: Rock, Paper, Scissors.";
+        return "You did not enter a valid choice.";
     }
 
 }
@@ -78,3 +78,38 @@ for (let i=0; i<10; i++) {
 }
 
 */
+
+function game() {
+
+    let playerScore = 0;
+    let computerScore = 0;
+
+    for (let i=0; i<5; i++) {
+
+        const playerSelection = prompt("Please enter one of the following: Rock, Paper, Scissors.");
+        const computerSelection = computerPlay();
+        const roundResultsMessage = playRound(playerSelection, computerSelection);
+        console.log(roundResultsMessage);
+
+        if (roundResultsMessage.startsWith("You win!")) {
+            playerScore++;
+        } else if (roundResultsMessage.startsWith("You lose!")) {
+            computerScore++;
+        } else {
+            console.log("Neither you nor the computer will get a point.");
+        }
+
+    }
+
+    console.log(`Your Score: ${playerScore}`);
+    console.log(`Computer's Score: ${computerScore}`);
+
+    if (playerScore > computerScore) {
+        console.log("You win the game!");
+    } else if (playerScore === computerScore) {
+        console.log("It's a draw!");
+    } else {
+        console.log("Sorry, you lose the game.");
+    }
+
+}
