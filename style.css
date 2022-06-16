@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Nova+Round&display=swap');
+
+body {
+    background-color:rgb(170, 196, 245);
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.btn-container > button {
+    height: 100px;
+    width: 300px;
+    font-family: "Nova Round", sans-serif;
+    font-size: 24px;
+    border-radius: 15px;
+}
+
+.rock-btn {
+    border: 3px solid #f72585;
+    background-color: #fff;
+    color: #f72585;
+}
+
+.rock-btn:hover {
+    background-color: #f72585;
+    color: #ecebeb;
+}
+
+.paper-btn {
+    border: 3px solid #560bad;
+    background-color: #fff;
+    color: #560bad;
+}
+
+.paper-btn:hover {
+    background-color: #560bad;
+    color: #ecebeb;    
+}
+
+.scissors-btn {
+    border: 3px solid #4361ee;
+    background-color: #fff;
+    color: #4361ee;
+}
+
+.scissors-btn:hover {
+    background-color: #4361ee;
+    color: #ecebeb;
+}
