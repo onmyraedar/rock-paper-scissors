@@ -1,10 +1,6 @@
 function computerPlay() {
 
-    // Choose a random number that is either 1, 2, or 3
-
     const randomNumber = Math.floor(Math.random() * 3) + 1;
-
-    // Return the choice that corresponds to the random number
 
     if (randomNumber === 1) {
         return "Rock";
@@ -15,14 +11,6 @@ function computerPlay() {
     }
 
 }
-
-/* Testing computerPlay in the console
-
-for (let i=0; i<15; i++) {
-    console.log(computerPlay());
-}
-
-*/
 
 function playRound(playerSelection, computerSelection) {
 
@@ -65,19 +53,6 @@ function playRound(playerSelection, computerSelection) {
     }
 
 }
-
-/* Testing playRound in the console
-
-for (let i=0; i<10; i++) {
-    // Simulate a round of Rock Paper Scissors
-    const playerSelection = computerPlay();
-    const computerSelection = computerPlay(); 
-    console.log(`You played ${playerSelection}.`);
-    console.log(`The computer played ${computerSelection}.`);
-    console.log(playRound(playerSelection, computerSelection));
-}
-
-*/
 
 function game() {
 
