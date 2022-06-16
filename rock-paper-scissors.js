@@ -64,8 +64,14 @@ function updateScoresText(){
     computerScoreText.textContent = `The Computer's Score: ${computerScore}`;
 }
 
+function updateRoundNumberText() {
+    const roundNumberText = document.querySelector(".round-number");
+    roundNumberText.textContent = `Round ${roundNumber}`;
+}
+
 let playerScore = 0;
 let computerScore = 0;
+let roundNumber = 1;
 
 const gameButtons = document.querySelectorAll(".btn-container > button");
 
@@ -86,5 +92,8 @@ gameButtons.forEach((button) => {
 
         updateResultsText(roundResultsMessage);
         updateScoresText();
+
+        roundNumber++;
+        updateRoundNumberText();
     });
 });
