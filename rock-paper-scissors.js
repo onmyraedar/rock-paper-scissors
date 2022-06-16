@@ -14,9 +14,7 @@ function computerPlay() {
 
 function playRound(playerSelection, computerSelection) {
 
-    const lowerCasePlayerSelection = playerSelection.toLowerCase()
-
-    if (lowerCasePlayerSelection === "rock") {
+    if (playerSelection === "rock-btn") {
         if (computerSelection === "Rock") {
             return "Draw! You and the computer both played Rock.";
         } else if (computerSelection === "Paper") {
@@ -28,7 +26,7 @@ function playRound(playerSelection, computerSelection) {
             // other than Rock, Paper, or Scissors
             return "We're sorry. The computer made an erroneous play.";
         }
-    } else if (lowerCasePlayerSelection === "paper") {
+    } else if (playerSelection === "paper-btn") {
         if (computerSelection === "Rock") {
             return "You win! Paper beats Rock.";
         } else if (computerSelection === "Paper") {
@@ -38,7 +36,7 @@ function playRound(playerSelection, computerSelection) {
         } else {
             return "We're sorry. The computer made an erroneous play.";
         }    
-    } else if (lowerCasePlayerSelection === "scissors") {
+    } else if (playerSelection === "scissors-btn") {
         if (computerSelection === "Rock") {
             return "You lose! Rock beats Scissors.";
         } else if (computerSelection === "Paper") {
@@ -54,17 +52,29 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-function game() {
+function updateResultsText(roundResultsMessage) {
+    const resultsText = document.querySelector(".results-text");
+    resultsText.textContent = roundResultsMessage;
+}
 
-    let playerScore = 0;
-    let computerScore = 0;
+function updateScoresText(){
+    const playerScoreText = document.querySelector(".player-score");
+    const computerScoreText = document.querySelector(".computer-score");
+    playerScoreText.textContent = `Your Score: ${playerScore}`;
+    computerScoreText.textContent = `The Computer's Score: ${computerScore}`;
+}
 
-    for (let i=0; i<5; i++) {
+let playerScore = 0;
+let computerScore = 0;
 
-        const playerSelection = prompt("Please enter one of the following: Rock, Paper, Scissors.");
+const gameButtons = document.querySelectorAll(".btn-container > button");
+
+gameButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+
+        const playerSelection = button.classList[0];
         const computerSelection = computerPlay();
         const roundResultsMessage = playRound(playerSelection, computerSelection);
-        console.log(roundResultsMessage);
 
         if (roundResultsMessage.startsWith("You win!")) {
             playerScore++;
@@ -74,17 +84,7 @@ function game() {
             console.log("Neither you nor the computer will get a point.");
         }
 
-    }
-
-    console.log(`Your Score: ${playerScore}`);
-    console.log(`Computer's Score: ${computerScore}`);
-
-    if (playerScore > computerScore) {
-        console.log("You win the game!");
-    } else if (playerScore === computerScore) {
-        console.log("It's a draw!");
-    } else {
-        console.log("Sorry, you lose the game.");
-    }
-
-}
+        updateResultsText(roundResultsMessage);
+        updateScoresText();
+    });
+});
