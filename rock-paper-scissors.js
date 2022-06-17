@@ -12,7 +12,7 @@ function computerPlay() {
 
 }
 
-function playRound(playerSelection, computerSelection) {
+function decideRoundWinner(playerSelection, computerSelection) {
 
     if (playerSelection === "rock-btn") {
         if (computerSelection === "Rock") {
@@ -52,19 +52,38 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-function updateResultsText(roundResultsMessage) {
-    const resultsText = document.querySelector(".results-text");
-    resultsText.textContent = roundResultsMessage;
+function playRound(playerSelection, computerSelection) {
+
+    const roundResultsMessage = decideRoundWinner(playerSelection, computerSelection);
+
+    if (roundResultsMessage.startsWith("You win!")) {
+        playerScore++;
+    } else if (roundResultsMessage.startsWith("You lose!")) {
+        computerScore++;
+    } else {
+        console.log("Neither you nor the computer will get a point.");
+    }
+
+    updateResultsDisplay(roundResultsMessage);
+    updateScoresDisplay();
+
+    roundNumber++;
+    updateRoundNumberDisplay();
 }
 
-function updateScoresText(){
+function updateResultsDisplay(roundResultsMessage) {
+    const results = document.querySelector(".results-text");
+    results.textContent = roundResultsMessage;
+}
+
+function updateScoresDisplay() {
     const playerScoreText = document.querySelector(".player-score");
     const computerScoreText = document.querySelector(".computer-score");
     playerScoreText.textContent = `Your Score: ${playerScore}`;
     computerScoreText.textContent = `The Computer's Score: ${computerScore}`;
 }
 
-function updateRoundNumberText() {
+function updateRoundNumberDisplay() {
     const roundNumberText = document.querySelector(".round-number");
     roundNumberText.textContent = `Round ${roundNumber}`;
 }
@@ -80,20 +99,7 @@ gameButtons.forEach((button) => {
 
         const playerSelection = button.classList[0];
         const computerSelection = computerPlay();
-        const roundResultsMessage = playRound(playerSelection, computerSelection);
+        playRound(playerSelection, computerSelection);
 
-        if (roundResultsMessage.startsWith("You win!")) {
-            playerScore++;
-        } else if (roundResultsMessage.startsWith("You lose!")) {
-            computerScore++;
-        } else {
-            console.log("Neither you nor the computer will get a point.");
-        }
-
-        updateResultsText(roundResultsMessage);
-        updateScoresText();
-
-        roundNumber++;
-        updateRoundNumberText();
     });
 });
