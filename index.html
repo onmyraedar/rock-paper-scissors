@@ -12,15 +12,23 @@
     <script src="rock-paper-scissors.js" defer></script>
 </head>
 <body>
-    <h2 class="round-number">Round 1</h2>
-    <div class="game-container">
-        <div class="results-container">
-            <h2 class="instructions-text">Make your choice.</h2><br>
-            <p class="player-score">Your Score: 0</p>
-            <p class="computer-score">The Computer's Score: 0</p><br>
-            <h2 class="results-text"></h2>
-            <p class="results-subtext"></p>
+    <div class="information-container">
+        <h2 class="round-number">Round 1</h2>
+        <p class="instructions-text">Make your choice.</p>
+        <p class="results-text"></h2>
+        <p class="results-subtext"></p>
+    </div>
+    <div class="score-container">
+        <div class="player-score-container">
+            <div class="player-score-lbl">Your Score</div>
+            <div class="score player-score">0</div>
         </div>
+        <div class="computer-score-container">
+            <div class="computer-score-lbl">Computer's Score</div>
+            <div class="score computer-score">0</div>
+        </div>
+    </div>
+    <div class="game-container">
         <div class="btn-container">
             <button class="rock-btn">
                 <i class="las la-hand-rock"></i>

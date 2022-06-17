@@ -3,12 +3,20 @@
 body {
     display: flex;
     flex-direction: column;
-    align-items: center;
     font-family: "Nova Round", sans-serif;
     background-color:rgb(190, 213, 255);
 }
 
-p {
+.information-container {
+    text-align: center;
+}
+
+.score-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.score {
     font-size: 24px;
 }
 
