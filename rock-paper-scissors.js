@@ -79,8 +79,8 @@ function updateResultsDisplay(roundResultsMessage) {
 function updateScoresDisplay() {
     const playerScoreText = document.querySelector(".player-score");
     const computerScoreText = document.querySelector(".computer-score");
-    playerScoreText.textContent = `Your Score: ${playerScore}`;
-    computerScoreText.textContent = `The Computer's Score: ${computerScore}`;
+    playerScoreText.textContent = `${playerScore}`;
+    computerScoreText.textContent = `${computerScore}`;
 }
 
 function updateRoundNumberDisplay() {
