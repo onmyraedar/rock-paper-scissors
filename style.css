@@ -47,44 +47,22 @@ body {
 }
 
 .btn-container > button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
     width: 200px;
     height: 250px;
     font-family: "Fredoka", sans-serif;
-    font-size: 24px;
+    font-size: 32px;
+    font-weight: 500;
+    background-color: #49455781;
+    color: white;
     border-radius: 15px;
     box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
 }
 
-.rock-btn {
-    border: 3px solid #f72585;
-    background-color: rgb(255, 255, 255);
-    color: #f72585;
+.btn-container > button:hover {
+    background-color: #494557;
 }
-
-.rock-btn:hover {
-    background-color: #f72585;
-    color: #ecebeb;
-}
-
-.paper-btn {
-    border: 3px solid #560bad;
-    background-color: #fff;
-    color: #560bad;
-}
-
-.paper-btn:hover {
-    background-color: #560bad;
-    color: #ecebeb;    
-}
-
-.scissors-btn {
-    border: 3px solid #4361ee;
-    background-color: #fff;
-    color: #4361ee;
-}
-
-.scissors-btn:hover {
-    background-color: #4361ee;
-    color: #ecebeb;
-}
-
